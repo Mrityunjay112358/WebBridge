@@ -18,6 +18,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         action: 'toggleFeature',
         feature: request.feature,
         enabled: request.enabled
+      }, (response) => {
+        if (chrome.runtime.lastError) {
+          // Content script not found, ignore or log
+          console.warn('Content script not found in tab:', chrome.runtime.lastError.message);
+        }
       });
     });
   }

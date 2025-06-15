@@ -7,7 +7,7 @@
 #       "commonWords": ["the","and","to",...]
 #     }
 # Returns JSON mapping each check to a list of element HTML snippets.
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from bs4 import BeautifulSoup
 import re
@@ -231,46 +231,12 @@ def check_passive_voice(soup):
 
 # --- Flask Routes ------------------------------------------------------------
 
-# Serve x.html at root with injected analysis script
-def inject_script(html_content):
-    # Insert script before closing </body>
-    script = '''
-<script>
-  // On page load, POST this page's HTML to /analyze
-  window.addEventListener('DOMContentLoaded', () => {
-    const html = document.documentElement.outerHTML;
-    fetch('/analyze', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ html })
-    })
-    .then(res => res.json())
-    .then(report => {
-      // Save or display the JSON
-      const pre = document.createElement('pre');
-      pre.style.position = 'fixed';
-      pre.style.bottom = '0';
-      pre.style.left = '0';
-      pre.style.right = '0';
-      pre.style.maxHeight = '40%';
-      pre.style.overflow = 'auto';
-      pre.style.background = 'rgba(255,255,255,0.9)';
-      pre.style.zIndex = '9999';
-      pre.textContent = JSON.stringify(report, null, 2);
-      document.body.appendChild(pre);
-    });
-  });
-</script>
-'''  
-    return html_content.replace('</body>', script + '</body>')
 
 @app.route('/', methods=['GET'])
 def root():
     # Serve x.html with analysis injection
     try:
-        with open('x.html', 'r', encoding='utf-8') as f:
-            content = f.read()
-        return inject_script(content)
+        return render_template('x.html')
     except FileNotFoundError:
         return "x.html not found", 404
 

@@ -25,14 +25,9 @@ class WebBridgePopup {
   }
 
   bindEvents() {
-    const submitButton = document.getElementById('submitButton');
     const resetProfileButton = document.getElementById('resetProfileButton');
     const saveChangesButton = document.getElementById('saveChangesButton');
-    
-    if (submitButton) {
-      submitButton.addEventListener('click', () => this.analyzeUserInput());
-    }
-    
+
     if (resetProfileButton) {
       resetProfileButton.addEventListener('click', () => this.resetProfile());
     }
@@ -41,27 +36,27 @@ class WebBridgePopup {
       saveChangesButton.addEventListener('click', () => this.saveProfileChanges());
     }
     
-    // Allow Enter key in textarea
-    const userInput = document.getElementById('userInput');
-    if (userInput) {
-      userInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && e.ctrlKey) {
-          this.analyzeUserInput();
-        }
-      });
-    }
   }
 
   async loadExistingProfile() {
     try {
       const result = await chrome.storage.sync.get(['accessibilityProfile']);
       
-      if (result.accessibilityProfile) {
-        this.profile = result.accessibilityProfile;
-        this.showProfileSection();
-      } else {
-        this.showOnboardingSection();
+
+      this.profile = result.accessibilityProfile;
+      if (!this.profile) {
+        this.profile = {
+          visual_impairment: false,
+          motor_difficulty: false,
+          cognitive_difficulty: false,
+          dyslexia: false,
+          seizure_sensitivity: false,
+          hearing_impairment: false,
+          language_barrier: false
+        };
       }
+      this.showProfileSection();
+
     } catch (error) {
       console.error('Error loading profile:', error);
       this.showMessage('Error loading your profile. Please try again.', 'error');
@@ -69,98 +64,6 @@ class WebBridgePopup {
     }
   }
 
-  async analyzeUserInput() {
-    const userInput = document.getElementById('userInput');
-    const inputText = userInput.value.trim();
-    
-    if (!inputText) {
-      this.showMessage('Please describe your accessibility needs.', 'error');
-      return;
-    }
-    
-    this.showLoadingSection();
-    
-    try {
-      const profile = await this.callLlamaForProfiling(inputText);
-      
-      if (profile) {
-        this.profile = profile;
-        await this.saveProfile();
-        this.showProfileSection();
-        this.showMessage('Your accessibility profile has been created!', 'success');
-      } else {
-        throw new Error('Failed to analyze input');
-      }
-    } catch (error) {
-      console.error('Error analyzing user input:', error);
-      this.showMessage('Unable to analyze your needs. Please try again or check if the AI service is running.', 'error');
-      this.showOnboardingSection();
-    }
-  }
-
-  async callLlamaForProfiling(userInput) {
-    const prompt = `Analyze this accessibility description and return ONLY a valid JSON object with boolean values for these exact keys: visual_impairment, motor_difficulty, cognitive_difficulty, dyslexia, seizure_sensitivity, hearing_impairment, language_barrier.
-
-User description: "${userInput}"
-
-Return only the JSON object, no other text:`;
-
-    try {
-      const response = await fetch(this.config.llamaEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: prompt,
-          max_tokens: 200,
-          temperature: 0.1
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      let responseText = data.response || data.message || data.text || '';
-      
-      // Extract JSON from response
-      const jsonMatch = responseText.match(/\{[^}]*\}/);
-      if (jsonMatch) {
-        const profileData = JSON.parse(jsonMatch[0]);
-        
-        // Validate the profile has all required keys
-        const requiredKeys = ['visual_impairment', 'motor_difficulty', 'cognitive_difficulty', 'dyslexia', 'seizure_sensitivity', 'hearing_impairment', 'language_barrier'];
-        const hasAllKeys = requiredKeys.every(key => typeof profileData[key] === 'boolean');
-        
-        if (hasAllKeys) {
-          return profileData;
-        }
-      }
-      
-      // Fallback: create default profile based on common keywords
-      return this.createFallbackProfile(userInput);
-      
-    } catch (error) {
-      console.error('LLaMA API error:', error);
-      return this.createFallbackProfile(userInput);
-    }
-  }
-
-  createFallbackProfile(userInput) {
-    const input = userInput.toLowerCase();
-    
-    return {
-      visual_impairment: /blind|vision|sight|see|visual|eye/i.test(input),
-      motor_difficulty: /motor|hand|arm|movement|click|mouse|mobility|physical/i.test(input),
-      cognitive_difficulty: /cognitive|memory|focus|concentration|thinking|processing/i.test(input),
-      dyslexia: /dyslexia|reading|text|words|letters/i.test(input),
-      seizure_sensitivity: /seizure|epilep|flash|strobe|sensitive/i.test(input),
-      hearing_impairment: /deaf|hearing|audio|sound|ear/i.test(input),
-      language_barrier: /language|english|translate|understand|speak/i.test(input)
-    };
-  }
 
   async saveProfile() {
     try {
@@ -171,6 +74,7 @@ Return only the JSON object, no other text:`;
         action: 'updateProfile',
         profile: this.profile
       });
+      chrome.tabs.reload();
       
     } catch (error) {
       console.error('Error saving profile:', error);
@@ -178,21 +82,8 @@ Return only the JSON object, no other text:`;
     }
   }
 
-  showOnboardingSection() {
-    document.getElementById('onboardingSection').classList.remove('hidden');
-    document.getElementById('loadingSection').classList.add('hidden');
-    document.getElementById('profileSection').classList.add('hidden');
-  }
-
-  showLoadingSection() {
-    document.getElementById('onboardingSection').classList.add('hidden');
-    document.getElementById('loadingSection').classList.remove('hidden');
-    document.getElementById('profileSection').classList.add('hidden');
-  }
-
   showProfileSection() {
-    document.getElementById('onboardingSection').classList.add('hidden');
-    document.getElementById('loadingSection').classList.add('hidden');
+
     document.getElementById('profileSection').classList.remove('hidden');
     
     this.renderFeatureToggles();

@@ -5,139 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebBridge Accessibility</title>
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f43f5e;
+            --success: #22c55e;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
         body {
-            width: 350px;
+            width: 380px;
             min-height: 500px;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--background);
+            color: var(--text);
         }
         
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header img {
+            width: 32px;
+            height: 32px;
         }
         
         h1 {
-            text-align: center;
-            margin: 0 0 20px 0;
+            margin: 0;
             font-size: 24px;
             font-weight: 600;
-        }
-        
-        .onboarding {
-            text-align: center;
-        }
-        
-        .question {
-            font-size: 18px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-        
-        #userInput {
-            width: 100%;
-            min-height: 80px;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            resize: vertical;
-            box-sizing: border-box;
-        }
-        
-        #userInput:focus {
-            outline: 2px solid #fff;
-            background: rgba(255, 255, 255, 1);
-        }
-        
-        .button {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin: 10px 0;
-        }
-        
-        .button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .button:active {
-            transform: translateY(0);
-        }
-        
-        .button.primary {
-            background: #4CAF50;
-            border-color: #45a049;
-        }
-        
-        .button.primary:hover {
-            background: #45a049;
-        }
-        
-        .button.secondary {
-            background: #f44336;
-            border-color: #da190b;
-        }
-        
-        .button.secondary:hover {
-            background: #da190b;
+            color: var(--primary);
         }
         
         .profile-section {
-            margin: 20px 0;
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
         }
         
         .profile-section h3 {
-            margin: 0 0 15px 0;
+            margin: 0 0 16px 0;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--text);
         }
         
         .feature-toggle {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            background: var(--background);
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .feature-toggle:hover {
+            background: #f1f5f9;
         }
         
         .feature-name {
             font-size: 14px;
             font-weight: 500;
+            color: var(--text);
         }
         
         .toggle-switch {
             position: relative;
-            width: 50px;
+            width: 44px;
             height: 24px;
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--border);
             border-radius: 12px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .toggle-switch.active {
-            background: #4CAF50;
+            background: var(--success);
         }
         
         .toggle-slider {
@@ -149,25 +111,96 @@
             background: white;
             border-radius: 50%;
             transition: transform 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .toggle-switch.active .toggle-slider {
-            transform: translateX(26px);
+            transform: translateX(20px);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .button.primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .button.primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .button.secondary {
+            background: var(--background);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .button.secondary:hover {
+            background: #f1f5f9;
+        }
+        
+        .button svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .message.error {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        
+        .message.success {
+            background: #dcfce7;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
         }
         
         .loading {
-            text-align: center;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px;
+            color: var(--text-light);
         }
         
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid white;
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
+            margin-bottom: 12px;
         }
         
         @keyframes spin {
@@ -175,64 +208,44 @@
             100% { transform: rotate(360deg); }
         }
         
-        .error {
-            background: rgba(244, 67, 54, 0.2);
-            border: 1px solid rgba(244, 67, 54, 0.5);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            text-align: center;
-        }
-        
-        .success {
-            background: rgba(76, 175, 80, 0.2);
-            border: 1px solid rgba(76, 175, 80, 0.5);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            text-align: center;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
         .footer {
             text-align: center;
-            margin-top: 20px;
+            padding: 16px;
+            color: var(--text-light);
             font-size: 12px;
-            opacity: 0.8;
+            border-top: 1px solid var(--border);
+            margin-top: 24px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>WebBridge</h1>
-        
-        <!-- Onboarding Section -->
-        <div id="onboardingSection" class="onboarding">
-            <div class="question">
-                What accessibility challenges do you experience?
-            </div>
-            <textarea id="userInput" placeholder="Tell us about your needs in your own words... For example: 'I'm blind', 'I have trouble concentrating', 'I can't use a mouse', etc."></textarea>
-            <button id="submitButton" class="button primary">Analyze My Needs</button>
-        </div>
-        
-        <!-- Loading Section -->
-        <div id="loadingSection" class="loading hidden">
-            <div class="spinner"></div>
-            <p>Analyzing your accessibility needs...</p>
+        <div class="header">
+            <img src="icons/icon48.png" alt="WebBridge Logo">
+            <h1>WebBridge</h1>
         </div>
         
         <!-- Profile Section -->
-        <div id="profileSection" class="hidden">
+        <div id="profileSection">
             <div class="profile-section">
-                <h3>Your Accessibility Profile</h3>
+                <h3>Accessibility Features</h3>
                 <div id="featureToggles"></div>
             </div>
             
-            <button id="resetProfileButton" class="button secondary">Reset Profile</button>
-            <button id="saveChangesButton" class="button primary">Save Changes</button>
+            <div class="button-group">
+                <button id="resetProfileButton" class="button secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Reset
+                </button>
+                <button id="saveChangesButton" class="button primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save Changes
+                </button>
+            </div>
         </div>
         
         <!-- Messages -->

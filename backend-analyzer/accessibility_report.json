@@ -1,53 +1,81 @@
 {
   "missingAlt": [
-    "<img class=\"hero\" src=\"download.jpeg\"/>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.hero-section > img.hero",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.hero-section > img.hero",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)"
   ],
   "lowContrast": [
-    "<h1>Optimizing Distributed, Cloud-Native Frameworks</h1>",
-    "<p>Strategizing multidimensional architectures with hyperconverged infrastructures and blockchain synergies.</p>",
-    "<nav>\n<a href=\"#\">Home</a>\n<a href=\"#\">About</a>\n<a href=\"#\">Solutions</a>\n<a href=\"#\">Contact</a>\n</nav>",
-    "<a href=\"#\">Home</a>",
-    "<a href=\"#\">About</a>",
-    "<a href=\"#\">Solutions</a>",
-    "<a href=\"#\">Contact</a>",
-    "<h2>Our Vision</h2>",
-    "<p>\n        Our end-to-end omnichannel leverage strategy has been actualized and is being amplified across enterprise-grade mission-critical deliverables. Transformation is being implemented via iterative convergence and synergistic modalities. <!-- Gunning Fog + Passive Voice -->\n</p>",
-    "<p>\n        The disabled may experience limitations. \n      </p>",
-    "<h2>Subscribe</h2>",
-    "<button>Submit</button>",
-    "<h2>Our Process</h2>",
-    "<p>\n        Each operational layer has been recontextualized and re-engineered through a heuristic lens in alignment with verticalized industry paradigms and best-of-breed analytical tooling. \n      </p>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > h1:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > button:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > h2:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
   ],
   "missingLabel": [
-    "<input type=\"text\"/>",
-    "<input type=\"email\"/>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(2)"
   ],
   "gunningFog": [
-    "<p>Strategizing multidimensional architectures with hyperconverged infrastructures and blockchain synergies.</p>",
-    "<p>\n        Our end-to-end omnichannel leverage strategy has been actualized and is being amplified across enterprise-grade mission-critical deliverables. Transformation is being implemented via iterative convergence and synergistic modalities. <!-- Gunning Fog + Passive Voice -->\n</p>",
-    "<p>\n        The disabled may experience limitations. \n      </p>",
-    "<p>\n        Each operational layer has been recontextualized and re-engineered through a heuristic lens in alignment with verticalized industry paradigms and best-of-breed analytical tooling. \n      </p>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
   ],
   "jargonRatio": [
-    "<p>Strategizing multidimensional architectures with hyperconverged infrastructures and blockchain synergies.</p>",
-    "<p>\n        Our end-to-end omnichannel leverage strategy has been actualized and is being amplified across enterprise-grade mission-critical deliverables. Transformation is being implemented via iterative convergence and synergistic modalities. <!-- Gunning Fog + Passive Voice -->\n</p>",
-    "<p>\n        The disabled may experience limitations. \n      </p>",
-    "<p>\n        Each operational layer has been recontextualized and re-engineered through a heuristic lens in alignment with verticalized industry paradigms and best-of-breed analytical tooling. \n      </p>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
   ],
-  "inclusiveLanguage": [
-    "<p>\n        The disabled may experience limitations. \n      </p>"
-  ],
+  "inclusiveLanguage": [],
   "smallTouchTargets": [
-    "<code>Likely too small: <a href=\"#\">Home</a> (short text or in nav/toolbar, no size info)</code>",
-    "<code>Likely too small: <a href=\"#\">About</a> (short text or in nav/toolbar, no size info)</code>",
-    "<code>Likely too small: <a href=\"#\">Solutions</a> (short text or in nav/toolbar, no size info)</code>",
-    "<code>Likely too small: <a href=\"#\">Contact</a> (short text or in nav/toolbar, no size info)</code>",
-    "<code>Warning: Could not determine size for element: <input type=\"text\"/></code>",
-    "<code>Warning: Could not determine size for element: <input type=\"email\"/></code>",
-    "<code>Warning: Could not determine size for element: <button>Submit</button></code>"
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1) (short text or in nav/toolbar, no size info)",
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2) (short text or in nav/toolbar, no size info)",
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3) (short text or in nav/toolbar, no size info)",
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4) (short text or in nav/toolbar, no size info)",
+    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(1)",
+    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(2)",
+    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > button:nth-of-type(1)"
   ],
   "passiveVoice": [
-    "<p>\n        Our end-to-end omnichannel leverage strategy has been actualized and is being amplified across enterprise-grade mission-critical deliverables. Transformation is being implemented via iterative convergence and synergistic modalities. <!-- Gunning Fog + Passive Voice -->\n</p>",
-    "<p>\n        Each operational layer has been recontextualized and re-engineered through a heuristic lens in alignment with verticalized industry paradigms and best-of-breed analytical tooling. \n      </p>"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)"
   ]
 }

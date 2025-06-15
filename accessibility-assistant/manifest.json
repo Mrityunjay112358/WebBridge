@@ -7,8 +7,7 @@
   "permissions": [
     "storage",
     "activeTab",
-    "scripting",
-    "http://localhost:5000/*"
+    "scripting"
   ],
   
   "host_permissions": [
