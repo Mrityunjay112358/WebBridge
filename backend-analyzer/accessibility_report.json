@@ -1,81 +1,28 @@
 {
   "missingAlt": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.hero-section > img.hero",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.hero-section > img.hero",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > img:nth-of-type(1)"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div.docs-titlebar-buttons > div.onegoogle-material-minibar > div#gb > div.gb_Dd.gb_0d.gb_yd > div.gb_Re > div.gb_z.gb_dd.gb_Nf.gb_0 > div.gb_D.gb_jb.gb_Nf.gb_0 > a.gb_B.gb_Za.gb_0 > img.gb_P.gbii"
   ],
   "lowContrast": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > h1:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > h3:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > button:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > h2:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > h2:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-branding-container > a:nth-of-type(1)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div#docs-titlebar > div.docs-title-outer.docs-title-inline-rename > div#docs-title-widget > div.docs-title-input-label > span#docs-title-input-label-inner",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div.docs-titlebar-buttons > span#docs-titlebar-share-client-button",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div.docs-titlebar-buttons > span#docs-titlebar-share-client-button > div.goog-inline-block.jfk-button.jfk-button-action.scb-split-button.docs-titlebar-button.jfk-button-disabled > span.scb-icon.apps-share-sprite.scb-button-icon.scb-public-s900",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div.docs-titlebar-buttons > div.onegoogle-material-minibar > div#gb > div.gb_Dd.gb_0d.gb_yd > div.gb_Re > div.gb_z.gb_dd.gb_Nf.gb_0 > div.gb_D.gb_jb.gb_Nf.gb_0 > a.gb_B.gb_Za.gb_0",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > span:nth-of-type(1)"
   ],
   "missingLabel": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(2)"
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div#docs-titlebar > div.docs-title-outer.docs-title-inline-rename > div#docs-title-widget > input.docs-title-input"
   ],
-  "gunningFog": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
+  "gunningFog": [],
+  "jargonRatio": [],
+  "inclusiveLanguage": [
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > script:nth-of-type(10)",
+    "[document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > script:nth-of-type(13)"
   ],
-  "jargonRatio": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.small-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p.italic-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.feature-grid > div.feature-item > div.text-content > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div:nth-of-type(6) > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)",
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p.complex-text"
-  ],
-  "inclusiveLanguage": [],
   "smallTouchTargets": [
-    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1) (short text or in nav/toolbar, no size info)",
-    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2) (short text or in nav/toolbar, no size info)",
-    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3) (short text or in nav/toolbar, no size info)",
-    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4) (short text or in nav/toolbar, no size info)",
-    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(1)",
-    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > input:nth-of-type(2)",
-    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > form:nth-of-type(1) > button:nth-of-type(1)"
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-branding-container > a:nth-of-type(1) (short text or in nav/toolbar, no size info)",
+    "Warning: Could not determine size for element: [document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div#docs-titlebar > div.docs-title-outer.docs-title-inline-rename > div#docs-title-widget > input.docs-title-input",
+    "Likely too small: [document]:nth-of-type(1) > html:nth-of-type(1) > body.docs-gm.docsCommonWiz.docs-material.docs-grille-gm3.docs-body-pageless.advancedCJKPositioning > div#docs-chrome > div:nth-of-type(4) > div#docs-header-container > div#docs-header > div#docs-titlebar-container > div.docs-titlebar-buttons > div.onegoogle-material-minibar > div#gb > div.gb_Dd.gb_0d.gb_yd > div.gb_Re > div.gb_z.gb_dd.gb_Nf.gb_0 > div.gb_D.gb_jb.gb_Nf.gb_0 > a.gb_B.gb_Za.gb_0 (short text or in nav/toolbar, no size info)"
   ],
-  "passiveVoice": [
-    "[document]:nth-of-type(1) > html:nth-of-type(1) > body:nth-of-type(1) > div.container > div.card > p:nth-of-type(1)"
-  ]
+  "passiveVoice": []
 }
