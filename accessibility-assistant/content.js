@@ -18,6 +18,10 @@ if (!window.WebBridgeAccessibility) {
       
       // Kick off our analyzer
       this.runAnalyzer();
+      // Add missing placeholders to input fields
+      this.addInputPlaceholders();
+      // Observe DOM for dynamically added inputs
+      this.observeInputPlaceholders();
     }
 
     /** Sends the entire page HTML to the Flask analyzer, then highlights issues */
@@ -239,11 +243,6 @@ if (!window.WebBridgeAccessibility) {
     enableHighContrastMode() {
       const elements = document.querySelectorAll('*');
       elements.forEach(el => {
-        // Skip elements that have class names containing "webbridge-*-button"
-        if (Array.from(el.classList).some(className => className.includes('webbridge-') && className.includes('-button') || className.includes('webbridge-reading-guide'))) {
-          return;
-        }
-        
         const styles = window.getComputedStyle(el);
         const bgColor = styles.backgroundColor;
         const color = styles.color;
@@ -294,16 +293,12 @@ if (!window.WebBridgeAccessibility) {
       
       textElements.forEach(el => {
         if (el.textContent.trim().length > 20) {
-          // Store original text content before adding button
-          const originalText = el.textContent.trim();
-          el.setAttribute('data-original-text', originalText);
-          
           const button = document.createElement('button');
           button.innerHTML = '🔊 Read This';
           button.className = 'webbridge-tts-button';
           button.setAttribute('aria-label', 'Read this text aloud');
           
-          button.addEventListener('click', () => this.speakText(el.getAttribute('data-original-text')));
+          button.addEventListener('click', () => this.speakText(el.textContent));
           
           el.style.position = 'relative';
           el.appendChild(button);
@@ -761,6 +756,59 @@ if (!window.WebBridgeAccessibility) {
       elements.forEach(el => {
         el.style.display = enabled ? '' : 'none';
       });
+    }
+
+    /**
+     * Adds placeholder text to input fields if missing, based on type or class.
+     */
+    addInputPlaceholders() {
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach(input => {
+        if (!input.hasAttribute('placeholder') || input.getAttribute('placeholder').trim() === '') {
+          // Use type or class to determine placeholder
+          let placeholder = '';
+          const type = input.getAttribute('type') || 'text';
+          const classList = input.className.toLowerCase();
+          if (type === 'email' || classList.includes('email')) {
+            placeholder = 'Your Email';
+          } else if (type === 'text' || classList.includes('name')) {
+            placeholder = 'Your Name';
+          } else if (type === 'password' || classList.includes('password')) {
+            placeholder = 'Password';
+          } else if (type === 'search' || classList.includes('search')) {
+            placeholder = 'Search';
+          } else if (type === 'tel' || classList.includes('phone')) {
+            placeholder = 'Phone Number';
+          } else if (type === 'number') {
+            placeholder = 'Enter a number';
+          } else {
+            placeholder = 'Enter value';
+          }
+          input.setAttribute('placeholder', placeholder);
+        }
+      });
+    }
+
+    /**
+     * Observes the DOM for new input elements and adds placeholders if missing.
+     */
+    observeInputPlaceholders() {
+      const observer = new MutationObserver(mutations => {
+        for (const mutation of mutations) {
+          for (const node of mutation.addedNodes) {
+            if (node.nodeType === 1) { // ELEMENT_NODE
+              if (node.tagName === 'INPUT') {
+                this.addInputPlaceholders();
+              } else if (node.querySelectorAll) {
+                if (node.querySelectorAll('input').length > 0) {
+                  this.addInputPlaceholders();
+                }
+              }
+            }
+          }
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
     }
   }
   window.WebBridgeAccessibility = WebBridgeAccessibility;
