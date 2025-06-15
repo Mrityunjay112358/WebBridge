@@ -239,6 +239,11 @@ if (!window.WebBridgeAccessibility) {
     enableHighContrastMode() {
       const elements = document.querySelectorAll('*');
       elements.forEach(el => {
+        // Skip elements that have class names containing "webbridge-*-button"
+        if (Array.from(el.classList).some(className => className.includes('webbridge-') && className.includes('-button') || className.includes('webbridge-reading-guide'))) {
+          return;
+        }
+        
         const styles = window.getComputedStyle(el);
         const bgColor = styles.backgroundColor;
         const color = styles.color;
@@ -289,12 +294,16 @@ if (!window.WebBridgeAccessibility) {
       
       textElements.forEach(el => {
         if (el.textContent.trim().length > 20) {
+          // Store original text content before adding button
+          const originalText = el.textContent.trim();
+          el.setAttribute('data-original-text', originalText);
+          
           const button = document.createElement('button');
           button.innerHTML = '🔊 Read This';
           button.className = 'webbridge-tts-button';
           button.setAttribute('aria-label', 'Read this text aloud');
           
-          button.addEventListener('click', () => this.speakText(el.textContent));
+          button.addEventListener('click', () => this.speakText(el.getAttribute('data-original-text')));
           
           el.style.position = 'relative';
           el.appendChild(button);
