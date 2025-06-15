@@ -3,9 +3,13 @@ Reads x.html from the project root, runs all checks, and prints a JSON report.''
 import json
 from bs4 import BeautifulSoup
 import analyzer  # assumes analyzer.py is in the same directory
+import os
+
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Load and parse the HTML file
-with open('x.html', 'r', encoding='utf-8') as f:
+with open(os.path.join(script_dir, 'x.html'), 'r', encoding='utf-8') as f:
     html = f.read()
 
 soup = BeautifulSoup(html, 'html.parser')
