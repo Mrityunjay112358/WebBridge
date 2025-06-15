@@ -7,14 +7,15 @@
 #       "commonWords": ["the","and","to",...]
 #     }
 # Returns JSON mapping each check to a list of element HTML snippets.
-
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from bs4 import BeautifulSoup
 import re
 import math
 import json
 
 app = Flask(__name__)
+CORS(app)
 
 # --- Helpers and Configuration -----------------------------------------------
 
@@ -93,10 +94,29 @@ def parse_color(val):
         return tuple(int(m.group(i)) for i in range(1, 4))
     return None
 
+def css_path(el):
+    path = []
+    while el and el.name:
+        selector = el.name
+        if el.get('id'):
+            selector += f"#{el['id']}"
+        elif el.get('class'):
+            selector += ''.join(f".{c}" for c in el['class'])
+        else:
+            nth = 1
+            sib = el
+            while (sib := sib.previous_sibling) is not None:
+                if getattr(sib, 'name', None) == el.name:
+                    nth += 1
+            selector += f":nth-of-type({nth})"
+        path.insert(0, selector)
+        el = el.parent
+    return ' > '.join(path)
+
 # --- Check Functions ---------------------------------------------------------
 
 def check_missing_alt(soup):
-    return [str(img) for img in soup.find_all('img')
+    return [css_path(img) for img in soup.find_all('img')
             if not img.get('alt') or not img['alt'].strip()]
 
 
@@ -127,9 +147,9 @@ def check_low_contrast(soup):
         if fg_rgb and bg_rgb:
             ratio = contrast_ratio_any(fg_rgb, bg_rgb)
             if ratio and ratio < 4.5:
-                issues.append(str(el))
+                issues.append(css_path(el))
         else:
-            issues.append(f"<code>Warning: Could not determine colors for element: {str(el)[:100]}</code>")
+            issues.append(f"Warning: Could not determine colors for element: {css_path(el)}")
     return issues
 
 
@@ -140,7 +160,7 @@ def check_missing_label(soup):
         if el.get('id') and soup.find('label', {'for': el['id']}): has_label = True
         if el.find_parent('label'): has_label = True
         if el.get('aria-label'): has_label = True
-        if not has_label: issues.append(str(el))
+        if not has_label: issues.append(css_path(el))
     return issues
 
 
@@ -153,7 +173,7 @@ def check_gunning_fog(soup):
         if not sentences or not words: continue
         complex_count = sum(1 for w in words if count_syllables(w) >= 3)
         fog = 0.4 * ((len(words)/len(sentences)) + (100*complex_count/len(words)))
-        if fog > 12: issues.append(str(p))
+        if fog > 12: issues.append(css_path(p))
     return issues
 
 
@@ -163,13 +183,13 @@ def check_jargon_ratio(soup):
         words = re.findall(r'\b\w+\b', p.get_text().lower())
         if not words: continue
         uncommon = sum(1 for w in words if w not in COMMON_WORDS)
-        if uncommon / len(words) > 0.2: issues.append(str(p))
+        if uncommon / len(words) > 0.2: issues.append(css_path(p))
     return issues
 
 
 def check_inclusive_language(soup):
     issues = []
-    for node in soup.find_all(text=BANNED_PATTERN): issues.append(str(node.parent))
+    for node in soup.find_all(text=BANNED_PATTERN): issues.append(css_path(node.parent))
     return list(dict.fromkeys(issues))
 
 
@@ -194,11 +214,11 @@ def check_small_touch_targets(soup):
             # More aggressive: flag as too small if text is short or in nav/toolbar
             parent_nav = el.find_parent(['nav', 'header', 'toolbar'])
             if (el.name in ['a', 'button'] and len(text) <= 4) or parent_nav:
-                issues.append(f"<code>Likely too small: {str(el)[:100]} (short text or in nav/toolbar, no size info)</code>")
+                issues.append(f"Likely too small: {css_path(el)} (short text or in nav/toolbar, no size info)")
             elif width is None or height is None:
-                issues.append(f"<code>Warning: Could not determine size for element: {str(el)[:100]}</code>")
+                issues.append(f"Warning: Could not determine size for element: {css_path(el)}")
         elif width < 44 or height < 44:
-            issues.append(str(el))
+            issues.append(css_path(el))
     return issues
 
 
@@ -206,7 +226,7 @@ def check_passive_voice(soup):
     issues = []
     pattern = re.compile(r'\b(am|is|was|were|be|been|being)\s+\w+ed\b', re.I)
     for el in soup.find_all(['p', 'li']):
-        if pattern.search(el.get_text()): issues.append(str(el))
+        if pattern.search(el.get_text()): issues.append(css_path(el))
     return issues
 
 # --- Flask Routes ------------------------------------------------------------
